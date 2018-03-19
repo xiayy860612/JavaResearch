@@ -8,9 +8,9 @@ import java.time.ZonedDateTime;
 public class JavaResearchTimeMain {
     public static void main(String[] args) {
 
-        long now = TimeUtil.epochMsFromNow();
+        long now = com.s2u2m.javaresearch.time.TimeUtil.epochMsFromNow();
         Instant feature = Instant.ofEpochMilli(now).plusMillis(3000);
-        long elapseMs = TimeUtil.elapseMs(now, feature.toEpochMilli());
+        long elapseMs = com.s2u2m.javaresearch.time.TimeUtil.elapseMs(now, feature.toEpochMilli());
         System.out.println(elapseMs == 3000);
 
         /**
@@ -25,7 +25,7 @@ public class JavaResearchTimeMain {
         ZonedDateTime gmt00 = ZonedDateTime.now(ZoneId.of("UTC"));
         System.out.println(gmt00);
 
-        String ts = TimeUtil.timeStr(now, ZoneId.of("GMT+08"));
+        String ts = com.s2u2m.javaresearch.time.TimeUtil.timeStr(now, ZoneId.of("GMT+08"));
         System.out.println(ts);
 
     }
