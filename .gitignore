@@ -27,3 +27,7 @@ target/
 # idea ignore
 .idea
 *.iml
+
+# directory ignore
+target/
+logs/
