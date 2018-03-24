@@ -13,6 +13,7 @@
         <module>javaresearch-time</module>
         <module>javaresearch-io-stream</module>
         <module>javaresearch-springboot</module>
+        <module>javaresearch-string</module>
     </modules>
 
     <dependencies>
