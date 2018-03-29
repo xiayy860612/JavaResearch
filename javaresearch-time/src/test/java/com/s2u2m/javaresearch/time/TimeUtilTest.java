@@ -1,13 +1,18 @@
 package com.s2u2m.javaresearch.time;
 
+import org.junit.Test;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-public class JavaResearchTimeMain {
-    public static void main(String[] args) {
+import static org.junit.Assert.*;
 
+public class TimeUtilTest {
+
+    @Test
+    public void test() {
         long now = com.s2u2m.javaresearch.time.TimeUtil.epochMsFromNow();
         Instant feature = Instant.ofEpochMilli(now).plusMillis(3000);
         long elapseMs = com.s2u2m.javaresearch.time.TimeUtil.elapseMs(now, feature.toEpochMilli());
@@ -27,6 +32,6 @@ public class JavaResearchTimeMain {
 
         String ts = com.s2u2m.javaresearch.time.TimeUtil.timeStr(now, ZoneId.of("GMT+08"));
         System.out.println(ts);
-
     }
+
 }
