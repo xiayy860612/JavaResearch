@@ -14,6 +14,7 @@
         <module>javaresearch-io-stream</module>
         <module>javaresearch-springboot</module>
         <module>javaresearch-string</module>
+        <module>javaresearch-class-init</module>
     </modules>
 
     <dependencies>
