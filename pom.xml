@@ -15,6 +15,7 @@
         <module>javaresearch-springboot</module>
         <module>javaresearch-string</module>
         <module>javaresearch-class-init</module>
+        <module>javaresearch-collection</module>
     </modules>
 
     <dependencies>
