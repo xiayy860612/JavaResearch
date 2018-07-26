@@ -1,4 +1,4 @@
-package com.s2u2m.javaresearch.spring.redisBasic.controller;
+package com.s2u2m.javaresearch.spring.redisBasic.basic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

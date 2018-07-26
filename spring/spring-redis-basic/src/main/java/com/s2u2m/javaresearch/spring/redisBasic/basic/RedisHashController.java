@@ -1,4 +1,4 @@
-package com.s2u2m.javaresearch.spring.redisBasic.controller;
+package com.s2u2m.javaresearch.spring.redisBasic.basic;
 
 import com.s2u2m.javaresearch.spring.redisBasic.ObjData;
 import org.springframework.beans.factory.annotation.Autowired;
