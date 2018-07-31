@@ -6,3 +6,6 @@ spring:
 server:
   port: 9090
 
+s2u2m:
+  test: "asfasdf"
+  reuse: { dict: "test", url: "${s2u2m.test}", port: "${server.port}" }
