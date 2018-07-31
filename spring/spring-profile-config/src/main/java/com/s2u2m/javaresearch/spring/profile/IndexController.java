@@ -22,9 +22,9 @@ public class IndexController {
 
     @GetMapping("/")
     public String getAttr() {
-//        String value = String.format("%s: %s", profile, config.getName());
-//        return value
-        return test2Config.getReuse().get("url");
+        String value = String.format("%s: %s", profile, config.getName());
+        return value;
+//        return test2Config.getReuse().get("url");
     }
 
 }
