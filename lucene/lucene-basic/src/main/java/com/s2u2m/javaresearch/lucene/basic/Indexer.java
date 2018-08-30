@@ -25,7 +25,6 @@ import org.apache.lucene.store.FSDirectory;
  */
 public class Indexer {
 
-    private String indexDir;
     private IndexWriter indexWriter;
 
     public Indexer(String indexDir) throws IOException {
@@ -70,6 +69,9 @@ public class Indexer {
 
         Field pathField = new StringField("path", filePath.toString(), Field.Store.YES);
         document.add(pathField);
+
+        Field fileNameField = new StringField("file_name", filePath.getFileName().toString(), Field.Store.YES);
+        document.add(fileNameField);
 
         return document;
     }

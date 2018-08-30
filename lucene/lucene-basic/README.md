@@ -85,6 +85,19 @@ Lucene支持纯布尔模型和向量空间模型.
 - 净处理内容, 将内容分布在多台机器上, 在查询时对多个机器进行查询, 并对收集的结果进行合并
 - 净查询吞吐量, 将同一份索引拷贝到不同的机器上
 
+## Lucene的基本使用
+
+基础组件
+
+- Document, 文档
+- Field, 文档中的域
+- IndexWriter, 主要用于构建文档
+- IndexReader, 用于和搜索进行交互, 供IndexSearcher使用, 
+由于IndexReader的创建开销很大, 往往在搜索使用期间使用同一个IndexReader.
+- IndexSearcher, 主要用于基于Query搜索文档
+- Query
+
 ## Reference
 
 - [Apache Lucene](http://lucene.apache.org/)
+- [Lucene实战](https://book.douban.com/subject/6440615/)

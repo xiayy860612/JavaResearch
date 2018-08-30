@@ -13,8 +13,8 @@ public class LuceneBasicMain {
         URL dataSrcDir = LuceneBasicMain.class.getClassLoader().getResource("data_src");
         URL indexDir = LuceneBasicMain.class.getClassLoader().getResource("index");
 
-        Indexer indexer = new Indexer(indexDir.toString());
-        indexer.index(dataSrcDir.toString());
+        Indexer indexer = new Indexer(indexDir.getPath());
+        indexer.index(dataSrcDir.getPath());
 
         System.out.println("Done");
     }
