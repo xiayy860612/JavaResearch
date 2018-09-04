@@ -2,6 +2,7 @@ package com.s2u2m.javaresearch.lucene.basic;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 /**
  * LuceneBasicMain
@@ -13,8 +14,14 @@ public class LuceneBasicMain {
         URL dataSrcDir = LuceneBasicMain.class.getClassLoader().getResource("data_src");
         URL indexDir = LuceneBasicMain.class.getClassLoader().getResource("index");
 
-        Indexer indexer = new Indexer(indexDir.getPath());
-        indexer.index(dataSrcDir.getPath());
+        try (Indexer indexer = new Indexer(indexDir.getPath())) {
+            indexer.index(dataSrcDir.getPath());
+        }
+
+        try (Searcher searcher = new Searcher(indexDir.getPath())) {
+            List<String> files = searcher.getFilePaths("lucene_history.txt");
+            System.out.println(String.join("\n", files));
+        }
 
         System.out.println("Done");
     }

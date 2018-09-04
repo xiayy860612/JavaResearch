@@ -23,7 +23,7 @@ import org.apache.lucene.store.FSDirectory;
  * Indexer
  * Create by Yangyang.xia on 8/29/18
  */
-public class Indexer {
+public class Indexer implements AutoCloseable {
 
     private IndexWriter indexWriter;
 
@@ -31,15 +31,15 @@ public class Indexer {
         FSDirectory directory = FSDirectory.open(Paths.get(indexDir));
         Analyzer analyzer = new StandardAnalyzer();
         IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
-        iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
-
+        iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         indexWriter = new IndexWriter(directory, iwc);
     }
 
     public int index(String dataDir) throws IOException {
         Path path = Paths.get(dataDir);
         if (!Files.isDirectory(path)) {
-            indexFile(path);
+            indexFile(indexWriter, path);
+            indexWriter.commit();
             return indexWriter.numDocs();
         }
 
@@ -47,7 +47,7 @@ public class Indexer {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 try {
-                    indexFile(file);
+                    indexFile(indexWriter, file);
                 } catch (IOException ex) {
                     // ignore
                     ex.printStackTrace();
@@ -56,16 +56,26 @@ public class Indexer {
             }
         };
         Files.walkFileTree(path, visitor);
+        indexWriter.commit();
         return indexWriter.numDocs();
     }
 
-    private void indexFile(Path filePath) throws IOException {
+    @Override
+    public void close() throws IOException {
+//        indexWriter.commit();
+        indexWriter.close();
+    }
+
+    private void indexFile(IndexWriter indexWriter, Path filePath) throws IOException {
         Document doc = getDocument(filePath);
         indexWriter.addDocument(doc);
     }
 
     private Document getDocument(Path filePath) {
         Document document = new Document();
+
+        Field subField = new StringField("subject", "test", Field.Store.YES);
+        document.add(subField);
 
         Field pathField = new StringField("path", filePath.toString(), Field.Store.YES);
         document.add(pathField);

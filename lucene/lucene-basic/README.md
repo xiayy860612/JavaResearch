@@ -91,11 +91,16 @@ Lucene支持纯布尔模型和向量空间模型.
 
 - Document, 文档
 - Field, 文档中的域
-- IndexWriter, 主要用于构建文档
+- IndexWriter, 主要用于构建文档和生成索引
 - IndexReader, 用于和搜索进行交互, 供IndexSearcher使用, 
 由于IndexReader的创建开销很大, 往往在搜索使用期间使用同一个IndexReader.
-- IndexSearcher, 主要用于基于Query搜索文档
+- IndexSearcher, 主要用于搜索IndexWriter生成的索引
 - Query
+- Term, 搜索的基本单元, 包含一对字符串元素
+  + 域名
+  + 域文本值
+- TopDocs, 用于描述搜索到的文档信息
+
 
 ## Reference
 
