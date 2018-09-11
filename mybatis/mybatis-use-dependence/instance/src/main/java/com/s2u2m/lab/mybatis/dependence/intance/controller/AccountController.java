@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.s2u2m.lab.mybatis.dependence.intance.mapper.UserNameAccountEntity;
-import com.s2u2m.lab.mybatis.dependence.intance.mapper.UserNameAccountMapper;
+import com.s2u2m.lab.mybatis.dependence.basic.mapper.UserNameAccountEntity;
+import com.s2u2m.lab.mybatis.dependence.basic.mapper.UserNameAccountMapper;
 
 /**
  * AccountController

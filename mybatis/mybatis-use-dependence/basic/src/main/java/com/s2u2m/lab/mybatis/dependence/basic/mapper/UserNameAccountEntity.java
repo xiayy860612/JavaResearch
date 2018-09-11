@@ -1,4 +1,4 @@
-package com.s2u2m.lab.mybatis.dependence.intance.mapper;
+package com.s2u2m.lab.mybatis.dependence.basic.mapper;
 
 import java.time.Instant;
 import java.util.Date;
